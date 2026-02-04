@@ -1,0 +1,74 @@
+======================================================================
+           DEBATEAI - DEBATE REPORT
+======================================================================
+
+Query: Should i invest in copper in janaury of 2026
+Date: 2026-01-31 21:21:55
+
+Verdict: 
+Trust Score: 0.0%
+
+======================================================================
+ROUND 1: Initial Arguments
+======================================================================
+
+✅ PRO ARGUMENTS:
+----------------------------------------------------------------------
+[Error: Failed after 3 attempts: [WinError 10061] No connection could be made because the target machine actively refused it]
+
+
+❌ CON ARGUMENTS:
+----------------------------------------------------------------------
+[Error: Failed after 3 attempts: [WinError 10061] No connection could be made because the target machine actively refused it]
+
+
+======================================================================
+ROUND 2: Rebuttals
+======================================================================
+
+✅ PRO REBUTTAL:
+----------------------------------------------------------------------
+[Error: Failed after 3 attempts: [WinError 10061] No connection could be made because the target machine actively refused it]
+
+
+❌ CON REBUTTAL:
+----------------------------------------------------------------------
+[Error: Failed after 3 attempts: [WinError 10061] No connection could be made because the target machine actively refused it]
+
+
+======================================================================
+ROUND 3: Final Verdict
+======================================================================
+
+⚖️ JUDGE'S VERDICT:
+----------------------------------------------------------------------
+[Error: Failed after 3 attempts: [WinError 10061] No connection could be made because the target machine actively refused it]
+
+
+======================================================================
+SOURCES CONSULTED
+======================================================================
+
+[1] 10_k2024.pdf
+    Relevance: 0.010
+    Preview: (COMEX) and Shanghai Futures Exchange. Prices on these exchanges generally reflect the worldwide bal...
+
+[2] insightsonindia.com-Causes, Uses and India’s Concerns.pdf
+    Relevance: 0.010
+    Preview: Insights Editor December 31, 2025Causes, Uses and India’ s Concerns www.insightsonindia.com /2025/12...
+
+[3] mcs2025-copper.pdf
+    Relevance: 0.010
+    Preview: The COMEX copper price reached a record high in May 2024 and was projected to average $4.20 per poun...
+
+[4] 10_k2024.pdf
+    Relevance: 0.009
+    Preview: c.Our economic interest in PT-FI is 48.76% and prior to 2023, it approximated 81% (refer to Note 2 f...
+
+[5] mcs2023-copper.pdf
+    Relevance: 0.009
+    Preview: In August, a leading copper wire-rod plant in Amarillo, TX, was indefinitely shut down owing to high...
+
+======================================================================
+End of Report
+======================================================================

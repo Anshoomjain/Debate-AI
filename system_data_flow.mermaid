@@ -1,0 +1,138 @@
+graph TB
+    subgraph "DATA LAYER"
+        RawData[Raw Documents<br/>PDFs, CSVs, TXT] --> Processing[Document Processing]
+        Processing --> Chunks[Processed Chunks<br/>512 tokens each]
+        Chunks --> Storage[(Data Storage<br/>chunks.json)]
+    end
+    
+    subgraph "EMBEDDING LAYER"
+        Storage --> Embedder[SentenceTransformer<br/>all-MiniLM-L6-v2<br/>GPU Accelerated]
+        Embedder --> Vectors[384-dim Vectors]
+        Vectors --> FAISS[(FAISS Index<br/>Semantic Search)]
+        Chunks --> BM25Build[BM25 Builder]
+        BM25Build --> BM25[(BM25 Index<br/>Keyword Search)]
+    end
+    
+    subgraph "RETRIEVAL LAYER"
+        UserInput[User Query] --> QueryProcessor[Query Processor]
+        QueryProcessor --> Expansion[Query Expansion]
+        Expansion --> HybridSearch[Hybrid Retrieval]
+        
+        HybridSearch --> FAISS
+        HybridSearch --> BM25
+        
+        FAISS --> SemResults[Top-10 Semantic]
+        BM25 --> KeyResults[Top-10 Keyword]
+        
+        SemResults --> Merger[Score Merger<br/>RRF Algorithm]
+        KeyResults --> Merger
+        
+        Merger --> TopK[Top-5 Chunks<br/>Ranked by Relevance]
+    end
+    
+    subgraph "AGENT LAYER"
+        TopK --> ContextBuilder[Context Builder]
+        ContextBuilder --> Context[Formatted Context<br/>~2500 tokens]
+        
+        Context --> ProAgent[🟢 Pro Agent<br/>llama3.1:8b<br/>Optimistic View]
+        Context --> ConAgent[🔴 Con Agent<br/>mistral:7b<br/>Skeptical View]
+        
+        ProAgent --> ProArgs[Pro Arguments<br/>+ Citations]
+        ConAgent --> ConArgs[Con Arguments<br/>+ Citations]
+        
+        ProArgs --> DebateState[(Debate State<br/>Round Tracker)]
+        ConArgs --> DebateState
+        
+        DebateState --> Rebuttal{Round 2<br/>Rebuttals}
+        
+        Rebuttal --> ProAgent
+        Rebuttal --> ConAgent
+        
+        Rebuttal --> FactChecker[🔍 Fact-Checker<br/>phi3:medium<br/>Claim Validator]
+        
+        FactChecker --> Context
+        FactChecker --> Verification[Verification Report<br/>Claim-by-Claim]
+        
+        Verification --> DebateState
+        
+        DebateState --> JudgeAgent[⚖️ Judge Agent<br/>llama3.1:8b<br/>Synthesizer]
+        
+        JudgeAgent --> TrustCalc[Trust Score<br/>Calculator]
+        TrustCalc --> TrustScore[Trust Score<br/>0-100%]
+        
+        JudgeAgent --> Verdict[Verdict<br/>FAVORABLE/<br/>UNFAVORABLE/<br/>UNCERTAIN]
+        
+        TrustScore --> ReporterAgent
+        Verdict --> ReporterAgent
+        DebateState --> ReporterAgent
+        
+        ReporterAgent[📄 Reporter Agent<br/>phi3:mini<br/>Formatter]
+    end
+    
+    subgraph "OUTPUT LAYER"
+        ReporterAgent --> FinalReport[Final Report]
+        
+        FinalReport --> TextOutput[Plain Text<br/>Terminal Display]
+        FinalReport --> MDOutput[Markdown<br/>.md File]
+        FinalReport --> PDFOutput[PDF<br/>Professional Report]
+        FinalReport --> JSONOutput[JSON<br/>Structured Data]
+        
+        FinalReport --> Visualizer[Visualization Engine]
+        
+        Visualizer --> PriceChart[Price Chart<br/>Historical Trends]
+        Visualizer --> SentimentGraph[Sentiment Analysis<br/>Pro/Con Split]
+        Visualizer --> TrustGauge[Trust Score Gauge<br/>Component Breakdown]
+    end
+    
+    subgraph "INTERFACE LAYER"
+        CLIInterface[Command Line<br/>Interface] --> UserInput
+        WebInterface[Streamlit<br/>Web App] --> UserInput
+        
+        TextOutput --> CLIInterface
+        TextOutput --> WebInterface
+        
+        PriceChart --> WebInterface
+        SentimentGraph --> WebInterface
+        TrustGauge --> WebInterface
+        
+        PDFOutput --> DownloadManager[Download<br/>Manager]
+        MDOutput --> DownloadManager
+        JSONOutput --> DownloadManager
+    end
+    
+    subgraph "MONITORING LAYER"
+        Performance[Performance<br/>Monitor] --> Metrics
+        
+        Metrics[System Metrics] --> ResponseTime[Response Time<br/>Target: <45s]
+        Metrics --> GPUUsage[GPU Utilization<br/>Monitor VRAM]
+        Metrics --> AccuracyTracker[Accuracy Tracker<br/>User Feedback]
+        
+        DebateState --> Logger[Event Logger]
+        Logger --> DebugInfo[Debug Information<br/>Troubleshooting]
+    end
+    
+    subgraph "EVALUATION LAYER"
+        FinalReport --> EvalSystem[Evaluation<br/>System]
+        
+        EvalSystem --> GroundTruth[Ground Truth<br/>Test Dataset]
+        EvalSystem --> AutoMetrics[Automated Metrics]
+        
+        AutoMetrics --> Citation[Citation Rate<br/>Target: 100%]
+        AutoMetrics --> Factuality[Factual Accuracy<br/>Target: >85%]
+        AutoMetrics --> Balance[Debate Balance<br/>Target: 40-60%]
+        
+        GroundTruth --> ManualEval[Manual<br/>Evaluation]
+        ManualEval --> UserSurvey[User Satisfaction<br/>Target: >4/5]
+    end
+    
+    UserInput -.->|Feedback Loop| Processing
+    AccuracyTracker -.->|Model Tuning| ProAgent
+    AccuracyTracker -.->|Model Tuning| ConAgent
+    
+    style UserInput fill:#90EE90
+    style FinalReport fill:#FFD700
+    style ProAgent fill:#90EE90
+    style ConAgent fill:#FF6B6B
+    style FactChecker fill:#4ECDC4
+    style JudgeAgent fill:#FFE66D
+    style ReporterAgent fill:#95E1D3

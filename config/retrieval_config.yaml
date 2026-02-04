@@ -1,0 +1,63 @@
+# DEBATEAI Retrieval Configuration
+# ==================================
+
+# Document processing
+document_processing:
+  chunk_size: 512  # tokens
+  chunk_overlap: 50  # tokens
+  min_chunk_length: 100  # characters
+  max_chunk_length: 2000  # characters
+  
+  supported_formats:
+    - pdf
+    - csv
+    - txt
+    - docx
+
+# Embedding model
+embedding:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  dimension: 384
+  device: "cuda"  # or "cpu"
+  batch_size: 32
+  normalize: true
+
+# Active retrievers and their weights
+retrievers:
+  - name: faiss
+    type: FAISSRetriever
+    enabled: true
+    weight: 0.6
+    config:
+      index_type: "Flat"  # or "IVF" for large datasets
+      metric: "cosine"
+      
+  - name: bm25
+    type: BM25Retriever
+    enabled: true
+    weight: 0.4
+    config:
+      k1: 1.5
+      b: 0.75
+
+# Future retrievers - uncomment to activate
+#  - name: elasticsearch
+#    type: ElasticSearchRetriever
+#    enabled: false
+#    weight: 0.3
+#    config:
+#      host: "localhost"
+#      port: 9200
+
+# Retrieval settings
+retrieval_settings:
+  top_k: 5  # Number of documents to retrieve
+  min_score: 0.3  # Minimum similarity score
+  rerank: true  # Use reciprocal rank fusion
+  rrf_k: 60  # RRF constant
+
+# Query expansion
+query_expansion:
+  enabled: true
+  max_synonyms: 3
+  use_reformulation: true

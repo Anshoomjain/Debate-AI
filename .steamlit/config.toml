@@ -1,0 +1,24 @@
+# Streamlit Configuration
+# Place this file in: D:\FSP\.streamlit\config.toml
+
+[theme]
+primaryColor = "#667eea"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+font = "sans serif"
+
+[server]
+port = 8501
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 500
+
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+
+[runner]
+magicEnabled = true
+fastReruns = true
