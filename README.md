@@ -119,16 +119,3 @@ You're done when:
 - ✅ Report includes Pro/Con arguments with citations
 - ✅ Trust score is calculated
 
----
-
-## 📖 Documentation Order
-
-1. **Start here**: This README
-2. **Then read**: INTEGRATION_GUIDE.md
-3. **Reference**: Your main project handbook
-
----
-
-**Questions? Check INTEGRATION_GUIDE.md or ask me!**
-
-Good luck! 🚀
