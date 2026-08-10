@@ -28,21 +28,21 @@ active_agents:
     description: "Balanced synthesizer - creates final verdict and trust score"
 
 # Future agents - uncomment to activate
-#  - name: fact_checker
-#    type: FactCheckerAgent
-#    model: phi3:medium
-#    enabled: false
-#    temperature: 0.1
-#    max_tokens: 400
-#    description: "Validates claims against source documents"
-#
-#  - name: reporter
-#    type: ReporterAgent
-#    model: phi3:mini
-#    enabled: false
-#    temperature: 0.3
-#    max_tokens: 1000
-#    description: "Formats final output into structured report"
+ - name: fact_checker
+   type: FactCheckerAgent
+   model: phi3:medium
+   enabled: false
+   temperature: 0.1
+   max_tokens: 400
+   description: "Validates claims against source documents"
+
+ - name: reporter
+   type: ReporterAgent
+   model: phi3:mini
+   enabled: false
+   temperature: 0.3
+   max_tokens: 1000
+   description: "Formats final output into structured report"
 
 # Debate configuration
 debate_settings:
