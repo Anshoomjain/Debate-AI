@@ -3,8 +3,6 @@ Hybrid Retriever - Combines FAISS + BM25 with RRF
 ==================================================
 Reciprocal Rank Fusion merges semantic and keyword search.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Dict
