@@ -3,8 +3,6 @@ Debate Orchestrator - Manages Multi-Agent Debate
 =================================================
 Coordinates 3-round debate between Pro, Con, and Judge agents.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Dict
