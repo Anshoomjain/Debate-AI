@@ -3,8 +3,6 @@ Con Agent - Skeptical Risk Analyst
 ===================================
 Identifies risks and bearish factors with evidence.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Optional
