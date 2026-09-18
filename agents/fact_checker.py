@@ -3,8 +3,6 @@ Fact-Checker Agent - Validates Claims Against Sources
 ======================================================
 Verifies all arguments made by Pro and Con agents.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Optional, Dict
