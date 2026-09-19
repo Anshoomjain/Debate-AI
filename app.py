@@ -3,8 +3,6 @@ DEBATEAI - Streamlit Web Application
 =====================================
 Professional web interface for multi-agent debates.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 import streamlit as st
