@@ -3,8 +3,6 @@ Judge Agent - Balanced Synthesizer
 ===================================
 Creates final verdict and calculates trust score.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Optional
