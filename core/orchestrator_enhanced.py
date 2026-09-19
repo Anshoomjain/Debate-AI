@@ -3,8 +3,6 @@ Enhanced Debate Orchestrator - 5-Agent System
 ==============================================
 Coordinates 5-round debate with Fact-Checker and Reporter.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Dict
