@@ -3,8 +3,6 @@ BM25 Retriever - Keyword-based search
 ======================================
 Traditional information retrieval using BM25 algorithm.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List
