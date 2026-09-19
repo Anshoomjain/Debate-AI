@@ -3,8 +3,6 @@ Reporter Agent - Formats Final Debate Report
 =============================================
 Creates polished, professional output from debate results.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Optional
