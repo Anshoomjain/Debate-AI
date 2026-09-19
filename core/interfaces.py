@@ -4,8 +4,6 @@ Base Interfaces for DEBATEAI
 Abstract classes that define the contract for all system components.
 This ensures extensibility - new components just inherit from these.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from abc import ABC, abstractmethod
