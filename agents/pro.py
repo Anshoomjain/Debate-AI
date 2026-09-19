@@ -3,8 +3,6 @@ Pro Agent - Optimistic Financial Analyst
 =========================================
 Finds and presents bullish arguments with evidence.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 from typing import List, Optional
