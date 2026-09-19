@@ -3,8 +3,6 @@ Document Processor - Load and chunk documents
 ==============================================
 Handles PDFs, CSVs, TXT files with extensible loader system.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 import os
