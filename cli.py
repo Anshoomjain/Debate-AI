@@ -3,9 +3,6 @@ DEBATEAI - Command Line Interface
 ==================================
 Interactive CLI for running debates.
 
-Author: [Your Name]
-Date: January 2026
-
 """
 
 import sys
