@@ -3,8 +3,6 @@ FAISS Retriever - Semantic search using vector embeddings
 ==========================================================
 GPU-accelerated similarity search.
 
-Author: [Your Name]
-Date: January 2026
 """
 
 import numpy as np
